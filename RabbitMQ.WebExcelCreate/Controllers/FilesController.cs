@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.WebExcelCreate.Hubs;
 using RabbitMQ.WebExcelCreate.Models;
 using System;
 using System.Collections.Generic;
@@ -18,9 +20,12 @@ namespace RabbitMQ.WebExcelCreate.Controllers
 
         private readonly AppDbContext _context;
 
-        public FilesController(AppDbContext context)
+        private readonly IHubContext<MyHub> _hubContext;
+
+        public FilesController(AppDbContext context, IHubContext<MyHub> hubContext)
         {
             _context = context;  // userFile için çağırıyorz
+            _hubContext = hubContext;
         }
 
         [HttpPost]
@@ -54,6 +59,12 @@ namespace RabbitMQ.WebExcelCreate.Controllers
             await _context.SaveChangesAsync();
 
             // signalR notification oluşturulacak.
+
+            // bu bilgiyi hangi kullanıcı oluşturduysa ona göndereceğiz
+            await _hubContext.Clients.User(userFile.UserId).SendAsync("CompletedFile");  // userfile dan gelen userId yi yakaladık (client o) mesajı gönderceğiz
+            // bu metoda subcribe olduğunda clientlar işlem tamamlanacak. dinleme işlemi de layout da gerçekleşecek. sürekli dinleyeceğiz. kullanıcı sayfalarda dolansa da dinlesin. o yüzden layout da olmalı
+
+            // bunu layoutta dinlemek için, SignalR javascript kütüphanesine ihtiyac var.
 
             return Ok();
 

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
+using RabbitMQ.WebExcelCreate.Hubs;
 using RabbitMQ.WebExcelCreate.Models;
 using RabbitMQ.WebExcelCreate.Services;
 using System;
@@ -48,6 +49,7 @@ namespace RabbitMQ.WebExcelCreate
             }).AddEntityFrameworkStores<AppDbContext>();
 
             services.AddControllersWithViews();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +74,10 @@ namespace RabbitMQ.WebExcelCreate
 
             app.UseEndpoints(endpoints =>
             {
+                // hubıma hangi endpoint üzerinden erişilecek
+
+                endpoints.MapHub<MyHub>("/MyHub"); // clientlara bilgi göndermem gerek. ben bunu upload işlemi bitince göndercem o da file/upload
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
