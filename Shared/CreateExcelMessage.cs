@@ -8,7 +8,7 @@ namespace Shared
 {
     public class CreateExcelMessage
     {
-        public string UserId { get; set; }
+        // public string UserId { get; set; } fileId üzerinden userId geldiği için yorum satırına gitti
         public int FileId { get; set; }
 
 
