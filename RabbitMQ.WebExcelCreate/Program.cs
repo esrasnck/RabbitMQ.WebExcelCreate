@@ -29,8 +29,8 @@ namespace RabbitMQ.WebExcelCreate
                 appDbContext.Database.Migrate(); // migrationları burada oluşturuyorum. bu komutla update database demesem de migrationı yapacak
 
                 if (!appDbContext.Users.Any()) // her hangi bir kayıt yoksa;
-                {
-                    userManager.CreateAsync(new IdentityUser() { UserName = "deneme", Email = "deneme@outlook.com" }, "Password12*").Wait(); // asekron işlemi sekrona çevirdik wait ile.
+                { 
+                   userManager.CreateAsync(new IdentityUser() { UserName = "deneme", Email = "deneme@outlook.com" }, "Password12*").Wait(); // asekron işlemi sekrona çevirdik wait ile.
                     userManager.CreateAsync(new IdentityUser() { UserName = "deneme2", Email = "deneme2@outlook.com" }, "Password12*").Wait();
 
                 }
