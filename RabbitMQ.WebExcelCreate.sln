@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.WebExcelCreate", "RabbitMQ.WebExcelCreate\RabbitMQ.WebExcelCreate.csproj", "{5D448DB3-706F-41DC-B842-59AAB2D8DCCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D448DB3-706F-41DC-B842-59AAB2D8DCCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D448DB3-706F-41DC-B842-59AAB2D8DCCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D448DB3-706F-41DC-B842-59AAB2D8DCCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D448DB3-706F-41DC-B842-59AAB2D8DCCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E36CD8E6-0AC7-4C9B-A2F9-C62EF64E9DC5}
+	EndGlobalSection
+EndGlobal
