@@ -81,7 +81,7 @@ namespace FileCreateWorkerService
 
             // artık ben excelCreate deki files controllerındaki upload metodunu çağırabilirim.
 
-            // önce gönderceğimiz file nesnesini oluşturuyoruz.
+            // önce gönderceğimiz file nesnesini oluşturuyoruz. bu request'e göndereceğim nesne. eğer request olmas buna gerek yok.(httpClient yoksa yok). parametreler hani IForm file alıyor ya... bu ona karşılık geliyor.
             MultipartFormDataContent multipartFormDataContent = new();
             multipartFormDataContent.Add(new ByteArrayContent(ms.ToArray()),"file",Guid.NewGuid().ToString()+".xlsx"); //http content bir byte array olacak. ikinci isim IFormfile a gönderceğim isimle aynı olacak, sonrasında random isim, sonrasında dosya formatı olacak
 
